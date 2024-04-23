@@ -1,12 +1,12 @@
-import React from 'react'
-import { Text, StyleSheet, View, SafeAreaView, Image } from 'react-native'
+import React from 'react';
+import { Text, StyleSheet, View, SafeAreaView, Image } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 
 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from 'react-redux';
-import {setDestination, setOrigin} from "../slices/navSlice"
+import {setDestination, setOrigin} from "../slices/navSlice";
 
 const HomeScreen = () => {
         const dispatch = useDispatch();
@@ -41,10 +41,15 @@ const HomeScreen = () => {
                         setOrigin({
                             location: details.geometry.location,
                             description: data.description,
-                    })
+                    }) 
                 );
                     dispatch(setDestination(null));
                 }}
+
+                // onPress={(data, details=null)=>{
+                //     console.log(data);
+                //     console.log(details);
+                // }}
                 fetchDetails={true}
                 returnKeyType={"search"}
                 enablePoweredByContainer={false}
